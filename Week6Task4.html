@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id = "sCanvas" width="550" height="550"></canvas>
+    <script>
+
+        var randomColour;
+        var xPos;
+        var yPos;
+        var i;
+        var j;
+        var c;
+        var ctx;
+
+        function drawCircle(size,x,y,colour){
+            ctx.beginPath();
+            ctx.arc(x,y,size/2,0,Math.PI*2,true);
+            ctx.fillStyle = colour;
+            ctx.fill();
+        }
+
+        c = document.getElementById("sCanvas");
+        ctx = c.getContext("2d");
+
+        yPos = 30;
+
+        for(i=0;i<9;i++){
+            xPos = 30;
+            drawLineOfCircle();
+        }
+
+        function drawLineOfCircle(){
+        for(j=0;j<9;j++){
+            randomColour = '#' + Math.random().toString(16).substring(2, 8);
+            drawCircle(30, xPos, yPos, randomColour);
+            xPos += 50;
+
+        }
+        yPos += 50
+    }
+
+    </script>
+</body>
+</html>
